@@ -1,0 +1,25 @@
+.login__body {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--gray-xxx);
+}
+
+.login__title {
+  color: var(--black-x);
+}
+
+.login__button {
+  background-color: var(--black-x);
+  color: var(--white-x);
+  border: none;
+  padding: 0.5rem 0;
+  transition: all 0.5s ease-in-out;
+  opacity: 0.6;
+}
+
+.login__button:hover {
+  opacity: 1;
+}

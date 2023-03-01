@@ -1,38 +1,67 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --white-x: white;
+  --black-x: black;
+  --purple-x: #6334ff;
+  --gray-x: gray;
+  --gray-xx: #ffffff;
+  --gray-xxx: #f4f5f9;
+  --red-x: rgba(255, 0, 0, 1);
+  --red-xx: rgba(255, 0, 0, 0.2);
+  --red-xxx: red;
+  --yellow-x: rgba(131, 131, 0, 1);
+  --yellow-xx: rgba(163, 163, 0, 0.2);
+  --green-x: rgba(0, 128, 0, 1);
+  --green-xx: rgba(0, 128, 0, 0.2);
+  --purple-x: rgba(128, 0, 128, 1);
+  --purple-xx: rgba(128, 0, 128, 0.2);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  background-color: var(--gray-xx);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.hidden {
+  display: none !important;
 }
 
-.App-link {
-  color: #61dafb;
+/* ----------------------------------------------------------------- */
+/* INPUT - START */
+/* ----------------------------------------------------------------- */
+
+.input-underline {
+  width: 100%;
+  background-image: linear-gradient(#0000, #00000052);
+  background-position: bottom 5px center;
+  background-size: calc(100% - 10px) 2px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
+  padding: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.input-warning {
+  background-image: linear-gradient(var(--red-xxx), var(--red-xxx)) !important;
 }
+
+.input-border-warning {
+  border-color: var(--red-xxx) !important;
+}
+
+.textArea-warning {
+  border-color: var(--red-xxx) !important;
+}
+
+.input-outline-none:focus {
+  outline: none;
+}
+
+/* ----------------------------------------------------------------- */
+/* INPUT - END */
+/* ----------------------------------------------------------------- */

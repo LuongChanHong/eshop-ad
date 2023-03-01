@@ -1,7 +1,7 @@
 import { USER } from "../Actions/Types/userType";
 
 const initialState = {
-  userId: {},
+  userId: "",
   cookie: {},
   role: "",
 };
