@@ -1,0 +1,3 @@
+Update app:
+- dựng redux store có redux-persist
+"build reduc store using redux-persist, redux-thunk"
