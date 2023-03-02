@@ -8,14 +8,19 @@ import "./login.css";
 import { signInAction } from "../../Redux/Actions/userAction";
 
 const Login = () => {
-  const emailText = "Please check your email";
+  const errorWarning = {
+    email: "Please check your email",
+    password: "Please check your password",
+    role: "Admin and consultant only",
+  };
   const [email, setEmail] = useState("");
-  const [emailError, setEmailError] = useState(false);
-  const [emailRegex, setEmailRegex] = useState(false);
+  const [emailWarn, setEmailWarn] = useState(false);
+  const [regexWarn, setRegexWarn] = useState(false);
 
-  const passwordText = "Please check your password";
   const [password, setPassword] = useState("");
-  const [passwordError, setPasswordError] = useState(false);
+  const [passwordWarn, setPasswordWarn] = useState(false);
+
+  const [roleWarn, setRoleWarn] = useState(false);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -28,22 +33,22 @@ const Login = () => {
 
   const inputValidation = () => {
     if (email) {
-      setEmailError(false);
+      setEmailWarn(false);
       if (validateEmail(email)) {
-        setEmailRegex(false);
+        setRegexWarn(false);
         if (password) {
-          setPasswordError(false);
+          setPasswordWarn(false);
           return true;
         } else {
-          setPasswordError(true);
+          setPasswordWarn(true);
           return false;
         }
       } else {
-        setEmailRegex(true);
+        setRegexWarn(true);
         return false;
       }
     } else {
-      setEmailError(true);
+      setEmailWarn(true);
       return false;
     }
   };
@@ -56,16 +61,21 @@ const Login = () => {
         signInAction({ email: email, password: password })
       );
       response.then((res) => {
-        console.log(res);
-        if (res.msg) {
-          if (res.msg.includes("Email")) {
-            setEmailError(true);
-          }
-          if (res.msg.includes("Password")) {
-            setPasswordError(true);
+        // console.log(res);
+        if (res.role === "admin" || res.role === "consultant") {
+          setRoleWarn(false);
+          if (res.msg) {
+            if (res.msg.includes("Email")) {
+              setEmailWarn(true);
+            }
+            if (res.msg.includes("Password")) {
+              setPasswordWarn(true);
+            }
+          } else {
+            navigate("/");
           }
         } else {
-          navigate("/");
+          setRoleWarn(true);
         }
       });
     }
@@ -94,13 +104,15 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 value={password}
               />
-              {/* {isLoginError && <span className="text-danger">{errorText}</span>} */}
-              {(emailError || emailRegex) && (
-                <span className="text-danger">{emailText}</span>
+              {roleWarn && (
+                <span className="text-danger">{errorWarning.role}</span>
+              )}
+              {(emailWarn || regexWarn) && (
+                <span className="text-danger">{errorWarning.email}</span>
               )}
 
-              {passwordError && (
-                <span className="text-danger">{passwordText}</span>
+              {passwordWarn && (
+                <span className="text-danger">{errorWarning.password}</span>
               )}
 
               <button

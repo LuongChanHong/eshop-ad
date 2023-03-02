@@ -15,7 +15,6 @@ const Main = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(userId);
     if (userId === "") {
       navigate("/login");
     }
