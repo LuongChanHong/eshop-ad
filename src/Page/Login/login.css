@@ -4,7 +4,7 @@
   height: 100vh;
   align-items: center;
   justify-content: center;
-  background-color: var(--gray-xxx);
+  background-color: var(--gray-III);
 }
 
 .login__title {
@@ -12,14 +12,14 @@
 }
 
 .login__button {
-  background-color: var(--black-x);
-  color: var(--white-x);
+  background-color: var(--black-II);
+  color: var(--white-I);
   border: none;
   padding: 0.5rem 0;
-  transition: all 0.5s ease-in-out;
-  opacity: 0.6;
+  transition: all 0.3s ease-in-out;
 }
 
 .login__button:hover {
-  opacity: 1;
+  background-color: var(--black-I);
+  color: var(--white-I);
 }

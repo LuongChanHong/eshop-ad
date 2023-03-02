@@ -1,0 +1,35 @@
+.sidebar__container {
+  background-color: var(--gray-III);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 100px;
+}
+
+.sidebar__button {
+  background-color: var(--black-II);
+  color: var(--white-I);
+  transition: all 0.3s ease-in-out;
+}
+
+.sidebar__button:hover {
+  background-color: var(--black-I);
+  color: var(--white-I);
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  padding: 5px 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--black-II);
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+  color: var(--black-I);
+}

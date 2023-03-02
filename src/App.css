@@ -6,29 +6,35 @@
 }
 
 :root {
-  --white-x: white;
-  --black-x: black;
-  --purple-x: #6334ff;
-  --gray-x: gray;
-  --gray-xx: #ffffff;
-  --gray-xxx: #f4f5f9;
-  --red-x: rgba(255, 0, 0, 1);
-  --red-xx: rgba(255, 0, 0, 0.2);
-  --red-xxx: red;
-  --yellow-x: rgba(131, 131, 0, 1);
-  --yellow-xx: rgba(163, 163, 0, 0.2);
-  --green-x: rgba(0, 128, 0, 1);
-  --green-xx: rgba(0, 128, 0, 0.2);
-  --purple-x: rgba(128, 0, 128, 1);
-  --purple-xx: rgba(128, 0, 128, 0.2);
+  --white-I: white;
+  --black-I: black;
+  --black-II: rgba(0, 0, 0, 0.5);
+  --purple-I: #6334ff;
+  --gray-I: gray;
+  --gray-II: #ffffff;
+  --gray-III: #e7e7e7;
+  --gray-IV: #d4d4d4;
+  --gray-V: #f2f2f2;
+  --red-I: rgba(255, 0, 0, 1);
+  --red-II: rgba(255, 0, 0, 0.2);
+  --red-III: red;
+  --yellow-I: rgba(131, 131, 0, 1);
+  --yellow-II: rgba(163, 163, 0, 0.2);
+  --green-I: rgba(0, 128, 0, 1);
+  --green-II: rgba(0, 128, 0, 0.2);
+  --purple-I: rgba(128, 0, 128, 1);
+  --purple-II: rgba(128, 0, 128, 0.2);
 }
 
 body {
-  background-color: var(--gray-xx);
+  background-color: var(--gray-II);
 }
 
-.hidden {
-  display: none !important;
+.sidebar,
+.content,
+.sidebar__container,
+.products__container {
+  height: 90vh;
 }
 
 /* ----------------------------------------------------------------- */
@@ -44,18 +50,6 @@ body {
   background-color: transparent;
   border: none;
   padding: 10px;
-}
-
-.input-warning {
-  background-image: linear-gradient(var(--red-xxx), var(--red-xxx)) !important;
-}
-
-.input-border-warning {
-  border-color: var(--red-xxx) !important;
-}
-
-.textArea-warning {
-  border-color: var(--red-xxx) !important;
 }
 
 .input-outline-none:focus {
