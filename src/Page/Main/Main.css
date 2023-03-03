@@ -4,13 +4,13 @@
   border-bottom-right-radius: 10px;
 }
 
-.products__search {
+.products__search--input {
   border: none;
   padding: 5px 15px;
   border-radius: 5px;
 }
 
-.products__search:focus {
+.products__search--input:focus {
   outline: none;
 }
 

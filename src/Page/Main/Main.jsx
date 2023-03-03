@@ -37,10 +37,11 @@ const Main = () => {
 
   // Invoke when user click to request another page.
   const handlePageClick = (event) => {
+    console.log("event.selected:", event.selected);
     const newOffset = (event.selected * 5) % products.length;
-    console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`
-    );
+    // console.log(
+    //   `User requested page number ${event.selected}, which is offset ${newOffset}`
+    // );
     setItemOffset(newOffset);
   };
 
@@ -73,6 +74,14 @@ const Main = () => {
     }
   };
 
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const foundItem = products.filter((item) =>
+      item.name.toLowerCase().includes(searchInput)
+    );
+    setProducts(foundItem);
+  };
+
   useEffect(() => {
     if (userId === "") {
       navigate("/login");
@@ -81,28 +90,25 @@ const Main = () => {
     }
   }, []);
 
-  useEffect(() => {
-    const searchProduct = () => {
-      const foundItem = products.filter((item) =>
-        item.name.toLowerCase().includes(searchInput)
-      );
-      currentItems = foundItem;
-      console.log("%:", 11 % 5);
-    };
-    searchProduct();
-  }, [searchInput]);
-
   return (
     <Wrapper>
       <section className="products__container">
         <section className="products__wrapper p-2 posion-realtive">
           <h4>Products</h4>
-          <input
-            className="products__search"
-            value={searchInput}
-            onChange={(e) => setSearchInput(e.target.value)}
-            placeholder="Search by name"
-          />
+          <form className="d-flex">
+            <input
+              className="products__search--input"
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
+              placeholder="Search by name"
+            />
+            <button
+              onClick={(e) => handleSearch(e)}
+              className="products__search--button btn btn-secondary ms-1"
+            >
+              search
+            </button>
+          </form>
           <div className="products__table ">
             <table className="table table-striped">
               <thead>
@@ -122,7 +128,7 @@ const Main = () => {
             pageClassName="btn btn-secondary mx-1"
             breakLabel="..."
             nextLabel="next >"
-            onPageChange={handlePageClick}
+            onPageChange={(e) => handlePageClick(e)}
             pageRangeDisplayed={5}
             pageCount={pageCount}
             previousLabel="< previous"
