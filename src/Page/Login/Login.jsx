@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import jsCookie from "js-cookie";
 
 import "../../App.css";
 import "./login.css";
@@ -63,6 +64,9 @@ const Login = () => {
       response.then((res) => {
         // console.log(res);
         if (res.role === "admin" || res.role === "consultant") {
+          jsCookie.set("cookieToken", res.token);
+          jsCookie.set("cookieUserId", res.userId);
+          jsCookie.set("cookieRole", res.role);
           setRoleWarn(false);
           if (res.msg) {
             if (res.msg.includes("Email")) {

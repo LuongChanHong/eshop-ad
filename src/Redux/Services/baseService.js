@@ -3,6 +3,7 @@ import { serverPath } from "../path";
 export class baseService {
   get = (url) => {
     return Axios({
+      withCredentials: true,
       url: `${serverPath}${url}`,
       method: "GET",
       headers: {
@@ -13,6 +14,7 @@ export class baseService {
 
   post = (url, model) => {
     return Axios({
+      withCredentials: true,
       url: `${serverPath}${url}`,
       method: "POST",
       data: model,
